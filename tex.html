@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #141e30, #243b55);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.box {
+    max-width: 350px;
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(0,0,0,0.6);
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #ff4b5c;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #ff1e3c;
+}
+
+.heart {
+    font-size: 50px;
+    animation: beat 1s infinite;
+}
+
+@keyframes beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="box" id="content">
+    <h2>We need to talk…</h2>
+    <p>I’ve been thinking a lot lately.</p>
+    <p>This relationship isn’t working the way it should.</p>
+    <button onclick="next()">Continue</button>
+</div>
+
+<script>
+let step = 0;
+
+function next() {
+    step++;
+
+    if (step === 1) {
+        document.getElementById("content").innerHTML = `
+            <h2>I'm sorry 😔</h2>
+            <p>This is really hard to say…</p>
+            <p>Please wait...</p>
+        `;
+        setTimeout(next, 2500);
+    }
+
+    else if (step === 2) {
+        document.body.style.background = "linear-gradient(to right, #ff758c, #ff7eb3)";
+        document.getElementById("content").innerHTML = `
+            <div class="heart">❤️</div>
+            <h2>Because I love you TOO MUCH 💖</h2>
+            <p>You are my favorite person.</p>
+            <p>Will you be my Valentine? 🌹</p>
+            <p>Forever yours 😘</p>
+        `;
+    }
+}
+</script>
+
+</body>
+</html>
